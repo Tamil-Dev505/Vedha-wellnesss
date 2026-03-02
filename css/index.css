@@ -140,7 +140,7 @@
     position: relative;
     overflow: hidden;
     color: #fff;
-    background-image: linear-gradient(180deg, rgba(6, 10, 10, 0.22), rgba(6, 10, 10, 0.12)), url("../images/Vedha Wellness/1.jpg");
+    background-image: linear-gradient(180deg, rgba(6, 10, 10, 0.22), rgba(6, 10, 10, 0.12));
     background-size: cover;
     background-position: center center;
 }
@@ -230,4 +230,161 @@
         opacity: 1 !important;
         transform: none !important;
     }
+}
+
+/* Glowing underline for headings on index page */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    display: inline-block;
+}
+
+h1::after,
+h2::after,
+h3::after,
+h4::after,
+h5::after,
+h6::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    width: 0;
+    height: 6px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, rgba(106, 168, 79, 0.85), rgba(58, 125, 74, 0.85));
+    box-shadow: 0 6px 18px rgba(58, 125, 74, 0.35), 0 0 28px rgba(106, 168, 79, 0.12) inset;
+    transition: width 450ms cubic-bezier(.2, .9, .2, 1), opacity 300ms ease;
+    opacity: 0.9;
+}
+
+h1:hover::after,
+h2:hover::after,
+h3:hover::after,
+h4:hover::after,
+h5:hover::after,
+h6:hover::after {
+    width: 160px;
+}
+
+@media (max-width:768px) {
+
+    h1::after,
+    h2::after,
+    h3::after,
+    h4::after,
+    h5::after,
+    h6::after {
+        bottom: -8px;
+        height: 5px;
+    }
+}
+
+/* Ensure section headings on index are centered (override inline-block) */
+main h1,
+main h2,
+main h3,
+.content-block h2,
+.about h3,
+.features h3,
+.services h3 {
+    display: block;
+    margin: 0 auto 18px;
+    text-align: center;
+}
+
+/* Use an actual <img> element as the hero background to enable srcset/object-fit
+   and make it easy to swap for higher-resolution images. */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+/* subtle slow zoom for hero background */
+.hero-bg {
+    transform: scale(1);
+    transition: transform 12s ease-in-out;
+    will-change: transform;
+    animation: heroZoom 16s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.06);
+    }
+}
+
+/* improve hero content alignment and spacing */
+.hero-content {
+    max-width: 920px;
+    padding: 72px 20px;
+    text-align: center;
+}
+
+.hero-content h2 {
+    color: #ffffff;
+    text-shadow: 0 10px 30px rgba(6, 10, 10, 0.5);
+}
+
+/* stronger entrance for hero heading */
+.hero-content h2.fade-up {
+    animation-name: fadeUp, heroPop;
+    animation-duration: 700ms, 700ms;
+    animation-fill-mode: both;
+}
+
+@keyframes heroPop {
+    from {
+        transform: translateY(12px) scale(0.98);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* make CTA stand out */
+.hero .btn.primary {
+    box-shadow: 0 14px 40px rgba(34, 60, 34, 0.28);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.hero .btn.primary:hover {
+    transform: translateY(-4px) scale(1.02);
+}
+
+/* Center section headings across index.html sections */
+/* Targets headings inside any top-level section on the index to ensure centered layout */
+section h1,
+section h2,
+section h3,
+.hero-content h1,
+.hero-content h2,
+.hero-content h3 {
+    display: block;
+    margin: 0 auto 18px;
+    text-align: center;
+    width: 100%;
 }

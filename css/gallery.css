@@ -1,19 +1,49 @@
 /* Gallery page styles */
 
+/* Use a responsive grid so each gallery card can be a consistent size
+   — target card size: 600x400 (3:2). Cards will scale down on narrow viewports. */
 .masonry-gallery {
-    column-count: 3;
-    column-gap: 24px;
-    max-width: 1200px;
+    /* Responsive 3x3 container: three columns that scale to fit the viewport.
+       Each card maintains a 3:2 ratio and will shrink below 600px when needed. */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    justify-content: center;
+    max-width: 1260px;
+    /* 3 * 400-420ish each at large sizes */
     margin: 0 auto;
 }
 
+/* Responsive fallbacks: shrink columns on smaller viewports while keeping 3 columns where possible */
+@media (max-width: 1400px) {
+    .masonry-gallery {
+        grid-template-columns: repeat(3, minmax(280px, 1fr));
+        max-width: 100%;
+        padding: 0 12px;
+    }
+}
+
+@media (max-width: 980px) {
+    .masonry-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .masonry-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
 .gallery-item {
-    break-inside: avoid;
-    margin-bottom: 20px;
+    margin: 0;
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 20px 60px rgba(20, 30, 10, 0.06);
     position: relative;
+    display: block;
+    aspect-ratio: 3 / 2;
+    /* fixes card shape (600x400 ratio) while allowing scaling */
 }
 
 /* Make the image anchors look and behave like buttons */
@@ -36,8 +66,7 @@
 
 .gallery-item img {
     width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
+    height: 100%;
     object-fit: cover;
     display: block;
     transition: transform 220ms ease;
@@ -58,21 +87,51 @@
     z-index: 9999;
 }
 
+/* Strong overrides to ensure the lightbox truly fills the viewport */
+.lightbox,
+.lightbox .inner {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    inset: 0 !important;
+}
+
 .lightbox.open {
     display: flex;
 }
 
 .lightbox .inner {
-    position: relative;
-    max-width: 90vw;
-    max-height: 90vh;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Full-display: image fills the viewport and may crop edges for an immersive view */
 .lightbox img {
+    position: relative;
     width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6);
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Force full-viewport coverage even if other rules exist elsewhere */
+.lightbox img {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: cover !important;
 }
 
 .lightbox .close,
@@ -80,6 +139,27 @@
 .lightbox .next {
     position: absolute;
     top: 12px;
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    border-radius: 10px;
+    padding: 12px 14px;
+    cursor: pointer;
+    border: none;
+    z-index: 10002;
+    font-size: 18px;
+}
+
+.lightbox .close,
+.lightbox .prev,
+.lightbox .next,
+.lightbox .fs-toggle {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox .fs-toggle {
+    position: absolute;
+    top: 12px;
+    right: 60px;
     background: rgba(255, 255, 255, 0.06);
     color: #fff;
     border-radius: 8px;
@@ -89,17 +169,41 @@
 }
 
 .lightbox .close {
-    right: 12px;
+    /* Rounded floating close button like the reference image */
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 10005;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 1;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 999px;
+    border: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+}
+
+.lightbox .close:hover {
+    transform: scale(1.03);
+    background: rgba(0, 0, 0, 0.65);
 }
 
 .lightbox .prev {
-    left: -60px;
+    left: 16px;
     top: 50%;
     transform: translateY(-50%);
 }
 
 .lightbox .next {
-    right: -60px;
+    right: 16px;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -108,9 +212,11 @@
 .hero {
     position: relative;
     overflow: hidden;
-    min-height: 70vh;
+    /* make gallery hero full viewport height */
+    min-height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 /* when hero text is inside a centered container, remove extra left padding */
@@ -461,8 +567,16 @@
 
 @media (min-width: 1024px) {
     .hero {
-        min-height: 85vh;
+        min-height: 100vh;
     }
+}
+
+/* Ensure hero container fills the hero and centers text vertically */
+.hero .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Testimonials */
@@ -499,6 +613,31 @@
 /* make all cards equal height */
 .testimonials-grid {
     align-items: stretch;
+}
+
+/* center testimonials and limit width like other sections */
+.testimonials-grid {
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 12px;
+}
+
+/* reveal animation for testimonial cards */
+.testimonial-card {
+    transform: translateY(8px);
+    opacity: 0;
+    transition: transform 420ms cubic-bezier(.2, .9, .2, 1), opacity 420ms ease;
+}
+
+.in-view .testimonial-card {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 60px rgba(20, 30, 10, 0.08);
 }
 
 .testimonial-card {
@@ -616,4 +755,38 @@
     .lightbox .next {
         display: none;
     }
+}
+
+/* Pagination controls for gallery (inserted by js/gallery.js) */
+.gallery-pagination {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.gallery-pagination button {
+    background: transparent;
+    border: 1px solid rgba(6, 10, 10, 0.08);
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.gallery-pagination button[disabled] {
+    opacity: 0.45;
+    cursor: default;
+}
+
+.gallery-pagination .pg-pages {
+    display: flex;
+    gap: 8px;
+}
+
+.gallery-pagination .pg-num.active {
+    background: var(--accent, #6aa84f);
+    color: #fff;
+    border-color: transparent;
 }

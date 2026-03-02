@@ -241,7 +241,7 @@
 
 /* PARAGRAPHS */
 .about-card p {
-    font-size: 16px;
+    padding: 0 6%;
     line-height: 1.8;
     color: #3b3b3b;
     margin-bottom: 18px;
