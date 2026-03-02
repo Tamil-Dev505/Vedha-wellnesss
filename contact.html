@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact — Vedha Wellness</title>
+    <link rel="stylesheet" href="css/base.css?v=1.1">
+    <link rel="stylesheet" href="css/wellness.css?v=1.1">
+    <link rel="stylesheet" href="css/contact.css?v=1.1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <div id="site-header"></div>
+
+    <main>
+        <section class="hero contact-hero">
+            <div class="hero-inner">
+                <div>
+                    <h1 class="fade-up delay-0">Contact <span class="accent-word">Vedha</span> Wellness</h1>
+                    <p class="subtle fade-up delay-1">We're happy to answer questions, schedule sessions, or help plan a
+                        personalised
+                        program.</p>
+                    <p class="hero-actions fade-up delay-2"><a class="btn primary hero-cta" href="#contactForm">Get in
+                            touch</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <h3>CONTACT US</h3>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h4>The Vedha Wellness Studio</h4>
+                    <p>📍 Kalluri Nagar, 3rd cross Street, Peelamedu, Coimbatore</p>
+                    <p>📞 7200205141<br>📞 9087161189</p>
+                    <figure class="studio-photo" aria-hidden="true">
+                        <img src="images/Vedha Wellness/14.jpg" alt="Vedha Wellness studio interior">
+                    </figure>
+                </div>
+                <a href="https://wa.me/917200205141" class="whatsapp-float" target="_blank"
+                    aria-label="Chat on WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+                <form id="contactForm" class="contact-form">
+                    <h4>Send Us a Message</h4>
+                    <label class="sr-only" for="name">Your name</label>
+                    <input id="name" name="name" type="text" placeholder="Your Name" required>
+
+                    <label class="sr-only" for="email">Email address</label>
+                    <input id="email" name="email" type="email" placeholder="Email Address" required>
+
+                    <label class="sr-only" for="phone">Phone number</label>
+                    <input id="phone" name="phone" type="tel" placeholder="Phone Number" required>
+
+                    <label for="service">Preferred Service</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option>Pranayama & Breathwork</option>
+                        <option>Sound Healing</option>
+                        <option>Therapeutic Yoga</option>
+                        <option>Natural Therapies</option>
+                        <option>Acupuncture / Acupressure</option>
+                        <option>Cupping Therapy</option>
+                        <option>Foot Reflexology</option>
+                        <option>Varma Therapy</option>
+                        <option>Chiropractic Method</option>
+                        <option>Dorn Therapy</option>
+                        <option>Pranic Healing & Complementary Therapies</option>
+                    </select>
+
+                    <label class="sr-only" for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Your Message" rows="4"></textarea>
+
+                    <div class="form-actions">
+                        <button id="submitBtn" type="submit" class="btn primary">Send Message</button>
+                    </div>
+
+                    <p class="form-success" id="successMsg" aria-live="polite" hidden>✅ Thank you! Your message has been
+                        sent.</p>
+                </form>
+            </div>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps?q=Peelamedu,Coimbatore&output=embed" loading="lazy"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="js/wellness.js"></script>
+    <script>
+        (function () {
+            const form = document.getElementById('contactForm');
+            const success = document.getElementById('successMsg');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                // Basic client-side validation
+                const data = new FormData(form);
+                if (!data.get('name') || !data.get('email') || !data.get('phone') || !data.get('service')) {
+                    alert('Please complete the required fields.');
+                    return;
+                }
+
+                // Here you would normally send data via fetch to your server/API.
+                // Simulate success feedback for now.
+                success.hidden = false;
+                form.querySelectorAll('input, textarea, select, button').forEach(el => el.disabled = true);
+
+                setTimeout(() => {
+                    success.hidden = true;
+                    form.reset();
+                    form.querySelectorAll('input, textarea, select, button').forEach(el => el.disabled = false);
+                }, 2200);
+            });
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,827 @@
+/* Page-specific styles for about.html */
+
+/* About page: polished layout and responsive rules */
+.about-hero {
+    /* full-bleed background image with reduced height */
+    position: relative;
+    padding: 56px 0;
+    min-height: 520px;
+    color: #fff;
+    background-image: url("../images/Vedha%20Wellness/5.jpg");
+    /* fill the width and crop vertically as needed so the image spans the viewport */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    /* ensure the section spans the full viewport width (full-bleed) */
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    display: flex;
+    align-items: center;
+}
+
+.about-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* slightly stronger overlay for contrast when image fills width */
+    background: linear-gradient(180deg, rgba(6, 10, 10, 0.22), rgba(6, 10, 10, 0.12));
+    pointer-events: none;
+}
+
+.about-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.about-hero .subtle {
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 10px;
+}
+
+.about-hero .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: center;
+    max-width: 980px;
+}
+
+/* decorative text shadow and animations */
+.about-hero .hero-inner h1 {
+    margin: 0 0 8px 0;
+    font-size: 2.6rem;
+    line-height: 1.05;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    animation: slideUp 700ms cubic-bezier(.2, .9, .3, 1) both;
+}
+
+.about-hero .hero-inner p {
+    margin: 0 0 8px 0;
+    animation: fadeIn 900ms ease both;
+    animation-delay: 160ms;
+}
+
+/* Heading gradient & underline */
+.about-hero .hero-inner h1 {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+}
+
+.about-hero .hero-inner h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 56px;
+    height: 4px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0));
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* Tagline styling */
+.about-hero .subtle {
+    color: rgba(255, 255, 255, 0.95);
+    font-style: italic;
+    opacity: 0.95;
+    letter-spacing: 0.2px;
+    font-weight: 500;
+    animation: fadeIn 1000ms ease both;
+    animation-delay: 220ms;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.content-block {
+    padding: 48px 0;
+}
+
+.offers-block,
+.split-text+.split-text {
+    margin-top: 18px;
+}
+
+/* decorative illustration for the mission block */
+.about-illustration {
+    width: 100%;
+    max-width: 520px;
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+    float: right;
+    margin: 0 0 18px 24px;
+}
+
+.offers-row {
+    display: grid;
+    grid-template-columns: 1fr 520px;
+    gap: 36px;
+    align-items: start;
+    margin-top: 28px;
+}
+
+.offers-text {
+    max-width: 560px;
+    padding-right: 8px;
+}
+
+.offers-text h3 {
+    margin-top: 0;
+    color: var(--accent-2);
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    margin-bottom: 12px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.offers-text h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 64px;
+    height: 4px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.offers-list {
+    margin: 12px 0 0 20px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.offers-list li {
+    margin-bottom: 10px;
+}
+
+.offers-list li::marker {
+    color: var(--accent);
+}
+
+.offers-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.offers-illustration {
+    width: 100%;
+    /* increase size for a more prominent offers image */
+    max-width: 760px;
+    height: 480px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(20, 30, 10, 0.08);
+}
+
+.offers-illustration img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width:1024px) {
+    .about-illustration {
+        float: none;
+        margin: 0 0 18px 0;
+        max-width: 100%;
+    }
+
+    .offers-row {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .offers-image {
+        order: 2;
+        margin-top: 12px;
+    }
+
+    .offers-text {
+        order: 1;
+    }
+
+    .offers-illustration {
+        height: 340px;
+        max-width: 640px;
+    }
+}
+
+
+.split-grid {
+    display: grid;
+    /* reduce center column so the image is smaller horizontally */
+    grid-template-columns: 220px 1fr 220px;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Left text column sizing for readable measure */
+.split-text {
+    max-width: 320px;
+    padding-right: 12px;
+}
+
+/* Ensure mission text aligns with the top of the illustration */
+.split-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 8px;
+}
+
+.split-text h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.split-text p {
+    margin: 0 0 12px 0;
+}
+
+/* Large centered illustration frame (restore earlier look) */
+
+.split-grid .about-illustration {
+    justify-self: center;
+    margin: 0 0 28px 0;
+    width: 100%;
+    /* match offers image sizing for consistent look */
+    max-width: 760px;
+    height: 480px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(20, 30, 10, 0.08);
+    background-clip: padding-box;
+}
+
+.split-grid .about-illustration img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (min-width: 1200px) {
+    .split-grid {
+        grid-template-columns: 200px 1.1fr 200px;
+        gap: 56px;
+    }
+
+    .split-grid .about-illustration {
+        max-width: 1200px;
+        aspect-ratio: 16 / 8;
+    }
+}
+
+@media (min-width:1600px) {
+    .split-grid {
+        grid-template-columns: 180px 1.2fr 180px;
+        gap: 64px;
+    }
+
+    .split-grid .about-illustration {
+        max-width: 1400px;
+        aspect-ratio: 16 / 8;
+    }
+}
+
+.split-grid .about-illustration img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Our Commitment section */
+.commitment {
+    padding: 36px 0 18px;
+}
+
+.commitment .lead {
+    color: var(--muted);
+    font-weight: 600;
+    max-width: 760px;
+    line-height: 1.8;
+    margin-top: 6px;
+}
+
+/* Card styling for Our Commitment */
+.commitment-card {
+    background: var(--card);
+    padding: 22px 26px;
+    border-radius: 12px;
+    box-shadow: 0 18px 40px rgba(20, 30, 10, 0.06);
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+@media (max-width:640px) {
+    .commitment-card {
+        padding: 16px;
+    }
+}
+
+/* Keep the right panel aligned to the top for visual balance */
+.split-grid .panel {
+    align-self: start;
+    grid-column: 1 / -1;
+    /* span full width */
+    max-width: 980px;
+    width: 100%;
+    margin: -48px auto 0 auto;
+    /* overlap upward into the image area */
+    padding: 28px 26px;
+    position: relative;
+    z-index: 5;
+    /* float above the image */
+    box-shadow: 0 28px 60px rgba(20, 30, 10, 0.08);
+}
+
+.panel {
+    background: var(--card);
+    padding: 28px 24px;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(20, 30, 10, 0.06);
+    max-width: 380px;
+    width: 100%;
+}
+
+.panel h3 {
+    margin-bottom: 10px;
+    color: var(--accent);
+}
+
+.panel-features {
+    margin: 14px 0 6px 0;
+    padding-left: 18px;
+    color: var(--muted);
+}
+
+.panel-features li {
+    margin-bottom: 8px;
+}
+
+.panel-stats {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.panel-stats .stat {
+    background: rgba(255, 255, 255, 0.92);
+    padding: 8px 12px;
+    border-radius: 10px;
+    text-align: center;
+    color: var(--accent-2);
+}
+
+.panel-stats .stat strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--accent);
+}
+
+.feature-list {
+    margin: 16px 0 24px 20px;
+}
+
+.panel ul {
+    margin-top: 12px;
+    padding-left: 20px;
+}
+
+.panel ul li {
+    margin-bottom: 10px;
+}
+
+.panel .btn.primary {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 10px 18px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: #fff;
+    border-radius: 28px;
+    box-shadow: 0 12px 30px rgba(30, 40, 20, 0.12);
+    text-decoration: none;
+}
+
+.team-section {
+    padding: 42px 0;
+}
+
+/* Philosophy section styles */
+.philosophy {
+    padding: 36px 0;
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 18px;
+}
+
+.philosophy-grid h3 {
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.philosophy-grid p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+@media (max-width:1024px) {
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* list styling for the simplified philosophy section */
+.philosophy .lead {
+    font-weight: 600;
+    color: var(--accent-2);
+    margin-bottom: 12px;
+}
+
+.philosophy-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.philosophy-list li {
+    position: relative;
+    padding-left: 46px;
+    margin-bottom: 12px;
+    color: var(--muted);
+}
+
+.philosophy-list .ph-icon {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    color: var(--accent);
+    font-size: 18px;
+    width: 34px;
+    text-align: center;
+}
+
+.split-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-illustration {
+    display: block;
+    margin: 0 auto 18px;
+    width: 100%;
+    max-width: 520px;
+    height: 320px;
+    /* fixed frame for placeholder */
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.about-illustration img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width:1024px) {
+    .split-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .split-image {
+        order: 2;
+        margin: 18px 0;
+    }
+
+    .split-text {
+        order: 1;
+    }
+
+    .panel {
+        order: 3;
+    }
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.team-member {
+    background: #fff;
+    padding: 18px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.04);
+}
+
+.team-member img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 12px;
+}
+
+.team-member h4 {
+    color: var(--accent-2);
+    margin-bottom: 6px;
+}
+
+.team-member p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.values-block {
+    padding: 42px 0;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.values-grid h3 {
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+/* value card styling */
+.value-card {
+    background: linear-gradient(180deg, #ffffff, #fbfbfa);
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 14px 40px rgba(20, 30, 10, 0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+.value-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: #fff;
+    font-size: 22px;
+    margin: 0 auto 14px;
+}
+
+.value-card h3 {
+    margin: 6px 0 8px 0;
+    font-size: 1.1rem;
+}
+
+.value-card p {
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.value-card:hover {
+    transform: translateY(-6px);
+    transition: transform 220ms ease;
+    box-shadow: 0 26px 60px rgba(20, 30, 10, 0.08);
+}
+
+@media (max-width:1024px) {
+    .values-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width:640px) {
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.cta {
+    padding: 48px 0;
+    text-align: center;
+    background: linear-gradient(180deg, #f7f5f0, #f3f1ec);
+}
+
+.cta .btn {
+    padding: 12px 30px;
+    box-shadow: 0 18px 40px rgba(90, 111, 76, 0.12);
+}
+
+/* placeholder for missing photos */
+.team-member.no-photo {
+    position: relative;
+}
+
+.team-member.no-photo::before {
+    content: "";
+    display: block;
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 12px;
+    background: linear-gradient(180deg, #f3f5ef, #ffffff);
+    border-radius: 50%;
+}
+
+@media (max-width:1024px) {
+    .about-hero .hero-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .split-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width:640px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* placeholder for missing photos */
+.team-member.no-photo {
+    position: relative;
+}
+
+.team-member.no-photo::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(180deg, #f3f5ef, #ffffff);
+    border-radius: 12px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.02);
+}
+
+.team-member.no-photo h4 {
+    margin-top: 12px;
+}
+
+/* --- Text colors & decorative styles --- */
+/* headings */
+.content-block h2,
+.team-section h2,
+.values-block h2 {
+    color: var(--accent-2);
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    margin-bottom: 18px;
+}
+
+.content-block h3,
+.panel h3,
+.values-grid h3 {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* paragraphs and subtle text */
+.content-block p,
+.team-member p,
+.values-block p {
+    color: var(--muted);
+    line-height: 1.65;
+}
+
+/* feature list with accent bullets */
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.feature-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: var(--accent);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* values cards styling */
+.values-grid>div {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid rgba(0, 0, 0, 0.04);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.values-grid>div:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(30, 40, 20, 0.06);
+}
+
+/* team member name accent and hover */
+.team-member h4 {
+    color: var(--accent-2);
+    font-size: 1.05rem;
+    transition: color 200ms ease, transform 200ms ease;
+}
+
+.team-member:hover h4 {
+    color: var(--accent);
+    transform: translateY(-4px);
+}
+
+/* CTA tweaks */
+.cta .lead {
+    font-size: 1.25rem;
+    color: var(--accent-2);
+    margin-bottom: 12px;
+}
+
+.cta .btn.primary {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: #fff;
+    border: none;
+}
+
+/* subtle link and inline highlight */
+.highlight {
+    background: linear-gradient(90deg, rgba(255, 230, 200, 0.12), rgba(255, 230, 200, 0));
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
+@media (max-width:640px) {
+    .about-hero .hero-inner h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Intermediate breakpoint for medium screens */
+@media (max-width:1200px) {
+    .split-grid {
+        grid-template-columns: 1fr 520px 340px;
+        gap: 36px;
+    }
+
+    .split-grid .about-illustration {
+        height: 360px;
+        max-width: 520px;
+    }
+}
