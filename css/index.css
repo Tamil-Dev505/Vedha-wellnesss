@@ -399,6 +399,32 @@ section h3,
     width: 100%;
 }
 
+/* Mobile: use a CSS background for the hero and hide the <img> to improve layout
+   (keeps the existing overlay and animations). Adjust the image path as needed. */
+@media (max-width:640px) {
+    .hero {
+        /* choose a mobile-appropriate image */
+        background-image: url("../images/VedhaWellness/3.jpg");
+        background-size: cover;
+        background-position: center center;
+    }
+
+    /* hide the absolute <img.hero-bg> on small screens to avoid duplicate visuals */
+    .hero .hero-bg {
+        display: none;
+    }
+
+    /* ensure hero overlay stacking remains correct */
+    .hero::before,
+    .hero::after {
+        z-index: 2;
+    }
+
+    .hero-content {
+        z-index: 4;
+    }
+}
+
 /* Ensure the index page gallery is mobile-first responsive */
 .masonry-gallery,
 #masonryGallery {
