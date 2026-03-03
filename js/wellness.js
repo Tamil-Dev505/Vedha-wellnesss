@@ -86,17 +86,49 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.getElementById('navMenu');
   if (hamburger && navMenu) {
+    // accessibility attributes
+    hamburger.setAttribute('role', 'button');
+    hamburger.setAttribute('aria-controls', 'navMenu');
+    hamburger.setAttribute('aria-expanded', 'false');
+    navMenu.setAttribute('aria-hidden', 'true');
+
+    function closeMenu() {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      navMenu.setAttribute('aria-hidden', 'true');
+    }
+
+    function openMenu() {
+      hamburger.classList.add('active');
+      navMenu.classList.add('active');
+      hamburger.setAttribute('aria-expanded', 'true');
+      navMenu.setAttribute('aria-hidden', 'false');
+    }
+
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
+      if (navMenu.classList.contains('active')) closeMenu();
+      else openMenu();
     });
 
     // close when nav link clicked
     navMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-      });
+      link.addEventListener('click', () => closeMenu());
+    });
+
+    // ensure menu closes when resizing to wider screens
+    window.addEventListener('resize', () => {
+      try {
+        if (window.innerWidth >= 641) {
+          // on larger screens, ensure nav is visible and hamburger inactive
+          navMenu.classList.remove('active');
+          hamburger.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          navMenu.setAttribute('aria-hidden', 'false');
+        } else {
+          navMenu.setAttribute('aria-hidden', navMenu.classList.contains('active') ? 'false' : 'true');
+        }
+      } catch (e) {}
     });
   }
 

@@ -1497,3 +1497,29 @@ p {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/* Navbar layout for tablet and up: horizontal menu */
+@media (min-width: 641px) {
+    .nav-menu {
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        width: auto !important;
+        background: transparent !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 18px !important;
+        padding: 0 !important;
+        display: flex !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+
+    .nav-menu a {
+        padding: 6px 4px;
+    }
+
+    .hamburger {
+        display: none !important;
+    }
+}
