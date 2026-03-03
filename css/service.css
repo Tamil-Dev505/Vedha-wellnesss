@@ -241,21 +241,17 @@
         grid-template-columns: 1fr;
     }
 
-    /* Mobile-critical override: ensure text is visible and above images */
+    /* Mobile-critical override: ensure text is visible and above images
+       only target headings and paragraphs so inline icons keep their layout */
     @media (max-width:768px) {
-
-        .services .service-card,
-        .services .service-card * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            display: block !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            transform: none !important;
-        }
 
         .services .service-card h4,
         .services .service-card p {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            visibility: visible !important;
+            opacity: 1 !important;
+            transform: none !important;
             position: relative !important;
             z-index: 5 !important;
             color: #1b1b1b !important;
