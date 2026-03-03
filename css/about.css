@@ -350,6 +350,21 @@
     }
 }
 
+/* Responsive hero image variants to reduce mobile bandwidth (swap to smaller images when available) */
+@media (max-width:640px) {
+    .about-hero {
+        background-image: url("../images/Vedha%20Wellness/3.jpg");
+        min-height: 360px;
+    }
+}
+
+@media (min-width:641px) and (max-width:1024px) {
+    .about-hero {
+        background-image: url("../images/Vedha%20Wellness/5.jpg");
+        min-height: 420px;
+    }
+}
+
 /* Keep the right panel aligned to the top for visual balance */
 .split-grid .panel {
     align-self: start;

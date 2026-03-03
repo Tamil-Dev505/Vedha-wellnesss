@@ -186,6 +186,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // LIGHTBOX: fullscreen viewer with close and navigation
     (function setupLightbox(){
+        // Add responsive `srcset` and `sizes` to gallery thumbnails to reduce mobile bandwidth where possible.
+        // This will not replace image assets; consider generating smaller image variants (e.g., 480/800/1200px)
+        // and updating the srcset URLs to those smaller files for real savings.
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            try {
+                const src = img.getAttribute('src') || img.dataset.src;
+                if (!src) return;
+                // Provide a reasonable sizes hint for the gallery grid
+                img.setAttribute('srcset', `${src} 480w, ${src} 800w, ${src} 1200w`);
+                img.setAttribute('sizes', '(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw');
+            } catch (e) { /* ignore */ }
+        });
+
         // Only enable the lightbox on the dedicated gallery page
         const page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
         if (page !== 'gallery.html') return;
@@ -257,6 +270,34 @@ document.addEventListener('DOMContentLoaded', function () {
             if (e.key === 'Escape') { e.preventDefault(); close(); }
             if (e.key === 'ArrowRight') { e.preventDefault(); showNext(); }
             if (e.key === 'ArrowLeft') { e.preventDefault(); showPrev(); }
+        });
+
+        // touch / swipe support for lightbox on touch devices
+        let touchStartX = 0, touchStartY = 0, touchEndX = 0, touchEndY = 0;
+        lb.addEventListener('touchstart', function (ev) {
+            if (!lb.classList.contains('open')) return;
+            const t = ev.touches && ev.touches[0];
+            if (!t) return;
+            touchStartX = t.clientX; touchStartY = t.clientY;
+            touchEndX = touchStartX; touchEndY = touchStartY;
+        }, { passive: true });
+
+        lb.addEventListener('touchmove', function (ev) {
+            if (!lb.classList.contains('open')) return;
+            const t = ev.touches && ev.touches[0];
+            if (!t) return;
+            touchEndX = t.clientX; touchEndY = t.clientY;
+        }, { passive: true });
+
+        lb.addEventListener('touchend', function () {
+            if (!lb.classList.contains('open')) return;
+            const dx = touchEndX - touchStartX;
+            const dy = touchEndY - touchStartY;
+            // horizontal swipe threshold
+            if (Math.abs(dx) > 50 && Math.abs(dy) < 120) {
+                if (dx < 0) showNext(); else showPrev();
+            }
+            touchStartX = touchStartY = touchEndX = touchEndY = 0;
         });
 
         // prevent page scroll when open
