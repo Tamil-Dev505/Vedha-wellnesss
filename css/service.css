@@ -262,8 +262,9 @@
     }
 
     .service-card {
-        overflow: visible;
+        overflow: visible !important;
         padding: 16px;
+        min-height: auto !important;
     }
 
     .service-card p {
@@ -271,6 +272,17 @@
         font-size: 0.98rem;
         max-width: none;
         margin-top: 10px;
+    }
+}
+
+/* Extra safeguard for very small or high-dpr viewports: force content flow */
+@media (max-width:440px) {
+    .service-card {
+        padding: 14px !important;
+    }
+
+    .service-media img {
+        max-height: 140px;
     }
 }
 
