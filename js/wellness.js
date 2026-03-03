@@ -5,11 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     <header class="navbar">
       <div class="nav-container">
         <div class="brand">
-          <img src="images/logo.png" class="nav-logo" alt="Logo">
-          <div class="brand-text">
-            <h1 class="logo-text">THE VEDHA WELLNESS STUDIO</h1>
-            <p class="tagline">Wellness from Within</p>
-          </div>
+          <a href="index.html" class="brand-link">
+            <img src="images/logo.png" class="nav-logo" alt="Logo">
+            <img src="images/logow.png" class="nav-wordmark" alt="Vedha Wellness Studio">
+          </a>
         </div>
 
         <nav class="nav-menu" id="navMenu">
@@ -119,22 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Lightbox (optional) — only if markup exists
-  const lightbox = document.getElementById('lightbox');
-  if (lightbox) {
-    function openLightbox(img) {
-      lightbox.style.display = 'flex';
-      const imgEl = document.getElementById('lightbox-img');
-      if (imgEl) imgEl.src = img.src;
-    }
-    function closeLightbox() { lightbox.style.display = 'none'; }
-
-    document.querySelectorAll('.gallery img').forEach(img => {
-      img.addEventListener('click', () => openLightbox(img));
-    });
-
-    lightbox.addEventListener('click', (e) => { if (e.target.id === 'lightbox') closeLightbox(); });
-  }
 
   // CONTACT FORM SUBMISSION — graceful when absent
   const form = document.getElementById('contactForm');

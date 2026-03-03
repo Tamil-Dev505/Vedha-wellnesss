@@ -33,6 +33,13 @@ body {
     padding: 0 20px;
 }
 
+/* Make images responsive by default */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* Reusable button styles */
 .btn {
     display: inline-block;
@@ -214,6 +221,25 @@ body {
 body {
     padding-top: 90px;
     /* adjust if navbar height changes */
+}
+
+/* Reduce top padding on smaller viewports so header doesn't take too much space */
+@media (max-width: 1024px) {
+    body {
+        padding-top: 76px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 64px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 56px;
+    }
 }
 
 /* Navbar inner container stays same */
@@ -447,5 +473,112 @@ h6 {
     .hero-badges {
         flex-direction: column;
         gap: 12px;
+    }
+}
+
+/* FOOTER */
+.site-footer {
+    background: #eef5e6;
+    color: #233226;
+    padding: 60px 0 20px;
+}
+
+.site-footer .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 36px;
+    align-items: start;
+}
+
+.site-footer .footer-logo {
+    width: 68px;
+    height: auto;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.site-footer h5 {
+    margin-bottom: 14px;
+    color: #24311f;
+}
+
+.site-footer .muted {
+    color: #5d6a55;
+    margin-bottom: 18px;
+}
+
+.site-footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.site-footer ul li {
+    margin-bottom: 12px;
+    color: #2f3b2b;
+}
+
+.site-footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-brand .footer-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 28px rgba(26, 38, 20, 0.06);
+    color: #6a7d56;
+}
+
+.footer-contact p {
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    margin-top: 28px;
+    padding-top: 18px;
+}
+
+.footer-bottom hr {
+    border: none;
+    border-top: 1px solid rgba(35, 50, 38, 0.08);
+    margin-bottom: 12px;
+}
+
+.footer-bottom .copyright {
+    text-align: center;
+    color: #5d6a55;
+    padding-bottom: 20px;
+}
+
+@media (max-width: 900px) {
+    .site-footer .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .site-footer .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .icon-circle {
+        width: 42px;
+        height: 42px;
     }
 }

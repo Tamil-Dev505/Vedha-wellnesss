@@ -13,9 +13,10 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;
-    /* ensure the section spans the full viewport width (full-bleed) */
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
+    /* make the hero span full width without causing horizontal overflow */
+    width: 100%;
+    left: 0;
+    margin-left: 0;
     display: flex;
     align-items: center;
 }
@@ -823,5 +824,38 @@
     .split-grid .about-illustration {
         height: 360px;
         max-width: 520px;
+    }
+}
+
+/* Responsive: stack split-grid on tablets and phones */
+@media (max-width: 1024px) {
+    .split-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .split-grid .about-illustration {
+        max-width: 100%;
+        height: auto;
+        float: none;
+        margin: 0 0 18px 0;
+    }
+
+    .split-grid .panel {
+        margin: 0 auto;
+        width: 100%;
+        padding: 18px;
+        box-shadow: 0 18px 40px rgba(20, 30, 10, 0.06);
+    }
+}
+
+@media (max-width: 640px) {
+    .about-hero {
+        padding: 36px 12px;
+        min-height: 300px;
+    }
+
+    .about-hero .hero-inner h1 {
+        font-size: 1.6rem;
     }
 }

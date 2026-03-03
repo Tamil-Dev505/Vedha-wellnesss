@@ -734,32 +734,33 @@ section.in-view h2.reveal {
 
 /* FOOTER */
 .footer {
-    background: #ffffff;
+    background: #eef7ed;
     text-align: center;
-    padding: 25px 15px;
+    padding: 16px 15px;
     color: #777;
     font-size: 14px;
 }
 
 /* Detailed footer layout */
 .footer {
-    background: #f3f1ec;
+    background: #eef7ed;
     color: #3b3b3b;
-    padding-top: 36px;
+    padding-top: 18px;
 }
 
 .footer-inner {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 28px;
+    /* adapt column count to available space and content */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
     align-items: start;
-    padding-bottom: 18px;
+    padding-bottom: 10px;
 }
 
 .footer-col {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 
 .footer-inner .links {
@@ -767,7 +768,8 @@ section.in-view h2.reveal {
 }
 
 .footer-inner .newsletter {
-    text-align: right;
+    /* center newsletter signup for cleaner alignment */
+    text-align: center;
 }
 
 .footer-col.contact {
@@ -779,7 +781,7 @@ section.in-view h2.reveal {
     width: 140px;
     height: auto;
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 @media (max-width:900px) {
@@ -821,7 +823,7 @@ section.in-view h2.reveal {
 
 .footer-bottom {
     border-top: 1px solid rgba(20, 30, 10, 0.04);
-    padding: 14px 0;
+    padding: 8px 0;
     margin-top: 6px;
     background: transparent;
 }
@@ -1067,6 +1069,56 @@ section.in-view h2.reveal {
     gap: 28px;
 }
 
+/* Footer responsive grid used across pages */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr 1fr 280px;
+    gap: 22px;
+    align-items: start;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-brand {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links,
+    .footer-services,
+    .footer-contact {
+        text-align: left;
+    }
+}
+
+@media (max-width: 640px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .footer-brand {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links,
+    .footer-services,
+    .footer-contact {
+        text-align: left;
+    }
+}
+
 .footer-col h4 {
     font-size: 1.05rem;
     letter-spacing: 0.2px;
@@ -1099,6 +1151,35 @@ section.in-view h2.reveal {
     box-shadow: 0 14px 28px rgba(10, 20, 10, 0.10);
 }
 
+/* Small footer icon buttons (used in footer-brand) */
+.footer-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.icon-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #2e5a2e;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(10, 20, 10, 0.06);
+    text-decoration: none;
+}
+
+.icon-circle i {
+    font-size: 18px;
+}
+
+.icon-circle:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(10, 20, 10, 0.10);
+}
+
 .newsletter-form {
     display: flex;
     gap: 8px;
@@ -1110,11 +1191,27 @@ section.in-view h2.reveal {
     padding: 10px 12px;
     border-radius: 10px;
     border: 1px solid rgba(20, 30, 10, 0.06);
+    height: 44px;
+    /* match button height */
 }
 
 .newsletter-form .btn.small {
     padding: 8px 12px;
     border-radius: 8px;
+}
+
+/* Ensure input and button are vertically centered and match size */
+.newsletter-form {
+    align-items: center;
+    justify-content: center;
+}
+
+.newsletter-form .btn.small {
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 14px;
 }
 
 .footer-bottom-inner {
@@ -1139,5 +1236,55 @@ section.in-view h2.reveal {
 
     .footer-bottom-inner p {
         font-size: 0.92rem;
+    }
+}
+
+/* Navbar brand: logo + wordmark */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.nav-logo {
+    width: 48px;
+    height: auto;
+    display: block;
+}
+
+.nav-wordmark {
+    height: 42px;
+    width: auto;
+    display: inline-block;
+}
+
+@media (max-width: 480px) {
+    .nav-wordmark {
+        display: none;
+    }
+}
+
+/* Footer wordmark (replaces footer text) */
+.footer-wordmark-link {
+    display: inline-block;
+    margin-top: 6px;
+}
+
+.footer-wordmark {
+    height: 36px;
+    width: auto;
+    display: block;
+}
+
+@media (max-width: 480px) {
+    .footer-wordmark {
+        height: 30px;
     }
 }

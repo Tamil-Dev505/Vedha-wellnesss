@@ -6,7 +6,8 @@
 
 .contact-wrapper {
     display: grid;
-    grid-template-columns: 1fr 420px;
+    /* make contact info column fixed and form/content flexible */
+    grid-template-columns: 420px 1fr;
     gap: 32px;
     align-items: start;
 }
@@ -77,10 +78,26 @@
     overflow: hidden;
 }
 
+/* Stronger permanent overlay for reliable contrast on hero images */
+.hero.contact-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(6, 10, 10, 0.55), rgba(6, 10, 10, 0.25));
+    z-index: 2;
+    pointer-events: none;
+}
+
 .hero.contact-hero .hero-inner {
     max-width: 1100px;
     padding: 12px 18px;
     text-align: center;
+}
+
+.hero.contact-hero .hero-inner {
+    position: relative;
+    z-index: 4;
+    /* ensure content sits above overlay */
 }
 
 .hero.contact-hero h1 {
@@ -94,29 +111,28 @@
 .hero.contact-hero .subtle {
     color: rgba(255, 255, 255, 0.95);
     margin-bottom: 8px;
-
-    /* studio photo under address */
-    .contact-info .studio-photo {
-        margin-top: 18px;
-        max-width: 520px;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 18px 40px rgba(10, 20, 10, 0.06);
-    }
-
-    .contact-info .studio-photo img {
-        display: block;
-        width: 100%;
-        height: auto;
-    }
-
-    @media (max-width:768px) {
-        .contact-info .studio-photo {
-            max-width: 100%;
-        }
-    }
-
     font-weight: 600;
+}
+
+/* studio photo under address (contact info column) */
+.contact-info .studio-photo {
+    margin-top: 18px;
+    max-width: 520px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(10, 20, 10, 0.06);
+}
+
+.contact-info .studio-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width:768px) {
+    .contact-info .studio-photo {
+        max-width: 100%;
+    }
 }
 
 .hero.contact-hero .hero-cta {
@@ -127,28 +143,22 @@
     background: linear-gradient(90deg, var(--accent), var(--accent-2));
 }
 
-/* Accent word gradient and subtle animation */
-.accent-word {
-    background: linear-gradient(90deg, #8fbf66, #5a6f4c, #b07a44);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    display: inline-block;
-    animation: contactWord 5s linear infinite;
+/* Ensure accent words in hero are light and visible */
+.hero.contact-hero .accent-word {
+    color: #bfe8c9;
+    -webkit-text-fill-color: #bfe8c9;
+    font-weight: 800;
 }
 
-@keyframes contactWord {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
+/* Accent word gradient and subtle animation */
+.accent-word {
+    color: #08300a;
+    -webkit-text-fill-color: #08300a;
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    display: inline;
+    font-weight: 800;
 }
 
 /* small delay helpers for contact page (stagger) */
@@ -166,9 +176,7 @@
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-    .accent-word {
-        animation: none !important;
-    }
+    /* no animation present for .accent-word */
 }
 
 @media (max-width:768px) {

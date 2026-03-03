@@ -87,6 +87,17 @@
     z-index: 9999;
 }
 
+/* Ensure stray/lightbox controls don't render unexpectedly at page bottom.
+   Keep hidden by default, allow display only when the JS adds the `open` class. */
+.lightbox {
+    visibility: hidden !important;
+}
+
+.lightbox.open {
+    visibility: visible !important;
+    display: flex !important;
+}
+
 /* Strong overrides to ensure the lightbox truly fills the viewport */
 .lightbox,
 .lightbox .inner {
@@ -206,6 +217,32 @@
     right: 16px;
     top: 50%;
     transform: translateY(-50%);
+}
+
+/* Touch & small-screen adjustments: make controls larger and ensure image fits inside viewport */
+@media (max-width: 768px) {
+    .lightbox img {
+        object-fit: contain !important;
+        background: rgba(0, 0, 0, 0.75);
+    }
+
+    .lightbox .prev,
+    .lightbox .next,
+    .lightbox .close {
+        padding: 14px 16px;
+        font-size: 20px;
+        width: 52px;
+        height: 52px;
+        border-radius: 999px;
+    }
+
+    .lightbox .prev {
+        left: 8px;
+    }
+
+    .lightbox .next {
+        right: 8px;
+    }
 }
 
 /* Hero slider styles */
