@@ -6,10 +6,18 @@
 
 .contact-wrapper {
     display: grid;
-    /* make contact info column fixed and form/content flexible */
-    grid-template-columns: 420px 1fr;
-    gap: 32px;
+    /* mobile-first: single column by default */
+    grid-template-columns: 1fr;
+    gap: 18px;
     align-items: start;
+}
+
+/* On medium+ screens, place a fixed info column beside the form */
+@media (min-width: 641px) {
+    .contact-wrapper {
+        grid-template-columns: 420px 1fr;
+        gap: 32px;
+    }
 }
 
 .contact-info p {
@@ -35,6 +43,8 @@
     padding: 10px 12px;
     border-radius: 8px;
     font-size: 0.98rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .contact-form textarea {
@@ -202,5 +212,55 @@
     .hero.contact-hero {
         background-image: linear-gradient(180deg, rgba(6, 10, 10, 0.32), rgba(6, 10, 10, 0.18)), url("../images/Vedha%20Wellness/8.jpg");
         min-height: 260px;
+    }
+}
+
+/* Mobile contact tweaks: stack columns, responsive map, scale hero */
+@media (max-width:640px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .contact-info .studio-photo {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    .map-wrapper {
+        margin-top: 14px;
+    }
+
+    .map-wrapper iframe {
+        width: 100%;
+        height: 260px;
+        border: 0;
+        display: block;
+    }
+
+    .hero.contact-hero {
+        min-height: 220px;
+        padding: 20px 12px;
+        background-position: center top;
+    }
+
+    .hero.contact-hero h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Ensure the map-wrapper uses full width on all viewports and scales nicely */
+.map-wrapper {
+    width: 100%;
+}
+
+/* Reduce top-level padding on small screens to avoid excessive scroll */
+@media (max-width:640px) {
+    .contact-section {
+        padding: 18px 0;
     }
 }
