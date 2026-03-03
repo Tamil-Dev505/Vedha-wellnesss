@@ -3,35 +3,28 @@
 /* Use a responsive grid so each gallery card can be a consistent size
    — target card size: 600x400 (3:2). Cards will scale down on narrow viewports. */
 .masonry-gallery {
-    /* Responsive 3x3 container: three columns that scale to fit the viewport.
-       Each card maintains a 3:2 ratio and will shrink below 600px when needed. */
+    /* Mobile-first: single column by default, expand at larger breakpoints */
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 24px;
     justify-content: center;
-    max-width: 1260px;
-    /* 3 * 400-420ish each at large sizes */
+    max-width: 100%;
     margin: 0 auto;
+    padding: 0 12px;
 }
 
-/* Responsive fallbacks: shrink columns on smaller viewports while keeping 3 columns where possible */
-@media (max-width: 1400px) {
-    .masonry-gallery {
-        grid-template-columns: repeat(3, minmax(280px, 1fr));
-        max-width: 100%;
-        padding: 0 12px;
-    }
-}
-
-@media (max-width: 980px) {
+@media (min-width: 641px) {
     .masonry-gallery {
         grid-template-columns: repeat(2, 1fr);
+        padding: 0;
+        max-width: 1024px;
     }
 }
 
-@media (max-width: 640px) {
+@media (min-width: 1025px) {
     .masonry-gallery {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1260px;
     }
 }
 
