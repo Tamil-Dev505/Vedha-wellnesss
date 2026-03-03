@@ -153,9 +153,16 @@
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: 1fr;
+    /* mobile-first: single column */
     gap: 28px;
     margin-top: 22px;
+}
+
+@media (min-width: 641px) {
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
 }
 
 .service-card {
