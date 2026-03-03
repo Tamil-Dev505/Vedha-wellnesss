@@ -403,8 +403,8 @@ section h3,
    (keeps the existing overlay and animations). Adjust the image path as needed. */
 @media (max-width:640px) {
     .hero {
-        /* choose a mobile-appropriate image */
-        background-image: url("../images/VedhaWellness/3.jpg");
+        /* mobile-appropriate image (changed) */
+        background-image: url("../images/VedhaWellness/2.jpg");
         background-size: cover;
         background-position: center center;
     }
