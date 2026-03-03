@@ -574,3 +574,20 @@
         z-index: 9999 !important;
     }
 }
+
+/* Always show services heading on all viewports (override reveal animation) */
+.services .container h3,
+.services h3 {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+    color: var(--accent-2) !important;
+    position: relative !important;
+    z-index: 999 !important;
+}
+
+.services .container h3::after,
+.services h3::after {
+    transform: scaleX(1) !important;
+    transform-origin: center center !important;
+}
