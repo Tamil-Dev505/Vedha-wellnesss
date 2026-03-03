@@ -138,10 +138,19 @@
 
 .offers-row {
     display: grid;
-    grid-template-columns: 1fr 520px;
-    gap: 36px;
+    grid-template-columns: 1fr;
+    /* mobile-first: single column */
+    gap: 18px;
     align-items: start;
-    margin-top: 28px;
+    margin-top: 18px;
+}
+
+@media (min-width: 1025px) {
+    .offers-row {
+        grid-template-columns: 1fr 520px;
+        gap: 36px;
+        margin-top: 28px;
+    }
 }
 
 .offers-text {
@@ -239,9 +248,9 @@
 
 .split-grid {
     display: grid;
-    /* reduce center column so the image is smaller horizontally */
-    grid-template-columns: 220px 1fr 220px;
-    gap: 40px;
+    grid-template-columns: 1fr;
+    /* mobile-first: stack */
+    gap: 20px;
     align-items: start;
 }
 
