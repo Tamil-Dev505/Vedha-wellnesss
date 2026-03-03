@@ -251,6 +251,29 @@
     }
 }
 
+/* Ensure descriptions remain visible on small screens by limiting image height
+   and allowing content to flow. Strengthen text color for contrast. */
+@media (max-width:640px) {
+    .service-media img {
+        max-height: 180px;
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 3 / 2;
+    }
+
+    .service-card {
+        overflow: visible;
+        padding: 16px;
+    }
+
+    .service-card p {
+        color: rgba(20, 20, 20, 0.95);
+        font-size: 0.98rem;
+        max-width: none;
+        margin-top: 10px;
+    }
+}
+
 /* Swap hero background to smaller images on mobile to save bandwidth */
 @media (max-width:640px) {
     .hero.about-hero {
