@@ -399,6 +399,45 @@ section h3,
     width: 100%;
 }
 
+/* Ensure the index page gallery is mobile-first responsive */
+.masonry-gallery,
+#masonryGallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    align-items: stretch;
+}
+
+.masonry-gallery .gallery-item,
+#masonryGallery .gallery-item {
+    aspect-ratio: 3 / 2;
+}
+
+.masonry-gallery img,
+#masonryGallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+}
+
+@media (min-width: 641px) {
+
+    .masonry-gallery,
+    #masonryGallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+
+    .masonry-gallery,
+    #masonryGallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 /* Accent word: simple text (no gradient) */
 .accent-word {
     color: #08300a;
