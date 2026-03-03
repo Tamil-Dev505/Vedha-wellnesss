@@ -425,6 +425,22 @@
     animation-duration: 700ms;
     animation-timing-function: cubic-bezier(.2, .9, .2, 1);
     animation-fill-mode: both;
+
+    /* Make the section heading visible on mobile even before reveal JS runs */
+    .services .container h3,
+    .services h3 {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+        color: var(--accent-2) !important;
+        position: relative !important;
+        z-index: 6 !important;
+    }
+
+    .services .container h3::after,
+    .services h3::after {
+        transform: scaleX(1) !important;
+    }
 }
 
 .delay-0 {
