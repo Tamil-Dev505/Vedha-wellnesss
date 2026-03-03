@@ -1294,7 +1294,8 @@ section.in-view h2.reveal {
 
 @media (max-width: 480px) {
     .nav-wordmark {
-        display: none;
+        display: inline-block;
+        height: 28px;
     }
 }
 
