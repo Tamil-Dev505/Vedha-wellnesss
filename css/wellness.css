@@ -1,5 +1,16 @@
 /* (moved base styles to css/base.css) */
 
+/* Mobile: make hero headings bold on small screens (≤640px) */
+@media (max-width: 640px) {
+
+    [class*="hero"] h1,
+    [class*="hero"] h2,
+    [class*="hero"] h3,
+    .hero-title,
+    .hero-heading {
+        font-weight: 700 !important;
+    }
+}
 
 
 /* INTRO SECTION */
