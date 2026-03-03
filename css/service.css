@@ -320,6 +320,21 @@
     }
 }
 
+/* Temporary safeguard: ensure services intro is visible on small screens */
+@media (max-width:768px) {
+
+    .services-intro p,
+    .services-intro .muted {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        color: rgba(20, 20, 20, 0.95) !important;
+        position: relative !important;
+        z-index: 6 !important;
+        margin-top: 10px !important;
+    }
+}
+
 /* Swap hero background to smaller images on mobile to save bandwidth */
 @media (max-width:640px) {
     .hero.about-hero {
