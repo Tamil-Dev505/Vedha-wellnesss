@@ -189,11 +189,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const hero = document.querySelector('.hero');
     if (!hero) return;
     const images = [
-      'images/Vedha Wellness/1.jpg',
-      'images/Vedha Wellness/3.jpg',
-      'images/Vedha Wellness/5.jpg',
-      'images/Vedha Wellness/11.jpg',
-      'images/Vedha Wellness/24.jpg'
+      'images/VedhaWellness/1.jpg',
+      'images/VedhaWellness/3.jpg',
+      'images/VedhaWellness/5.jpg',
+      'images/VedhaWellness/11.jpg',
+      'images/VedhaWellness/24.jpg'
     ];
 
     let idx = 0;

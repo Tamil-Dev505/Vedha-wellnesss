@@ -7,7 +7,7 @@
     padding: 56px 0;
     min-height: 520px;
     color: #fff;
-    background-image: url("../images/Vedha%20Wellness/5.jpg");
+    background-image: url("../images/VedhaWellness/5.jpg");
     /* fill the width and crop vertically as needed so the image spans the viewport */
     background-size: cover;
     background-position: center center;
@@ -359,17 +359,71 @@
     }
 }
 
+/* Small-screen refinements to avoid overflow and large fixed heights */
+@media (max-width:640px) {
+    .about-hero {
+        min-height: 300px;
+        padding: 28px 12px;
+        background-position: center top;
+    }
+
+    .about-hero .hero-inner h1 {
+        font-size: 1.6rem;
+        line-height: 1.08;
+        text-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+    }
+
+    .about-hero .hero-inner p {
+        font-size: 0.98rem;
+    }
+
+    /* Stop the overlapping panel effect on narrow viewports */
+    .split-grid .panel {
+        margin: 0 0 18px 0;
+        padding: 18px;
+        max-width: 100%;
+        box-shadow: 0 12px 28px rgba(20, 30, 10, 0.06);
+        grid-column: 1 / -1;
+    }
+
+    .split-grid {
+        gap: 14px;
+    }
+
+    .split-text {
+        max-width: 100%;
+        padding-right: 0;
+    }
+
+    .split-grid .about-illustration,
+    .offers-illustration {
+        height: auto;
+        max-width: 100%;
+        margin: 0 0 16px 0;
+    }
+
+    .split-grid .about-illustration img,
+    .offers-illustration img {
+        height: auto;
+        object-fit: cover;
+    }
+
+    .commitment-card {
+        padding: 14px;
+    }
+}
+
 /* Responsive hero image variants to reduce mobile bandwidth (swap to smaller images when available) */
 @media (max-width:640px) {
     .about-hero {
-        background-image: url("../images/Vedha%20Wellness/3.jpg");
+        background-image: url("../images/VedhaWellness/3.jpg");
         min-height: 360px;
     }
 }
 
 @media (min-width:641px) and (max-width:1024px) {
     .about-hero {
-        background-image: url("../images/Vedha%20Wellness/5.jpg");
+        background-image: url("../images/VedhaWellness/5.jpg");
         min-height: 420px;
     }
 }

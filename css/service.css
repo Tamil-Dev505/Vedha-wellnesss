@@ -4,7 +4,7 @@
 .hero.about-hero {
     min-height: 380px;
     padding: 56px 0;
-    background-image: linear-gradient(180deg, rgba(6, 10, 10, 0.35), rgba(6, 10, 10, 0.18)), url("../images/Vedha Wellness/8.jpg");
+    background-image: linear-gradient(180deg, rgba(6, 10, 10, 0.35), rgba(6, 10, 10, 0.18)), url("../images/VedhaWellness/8.jpg");
     background-size: cover;
     background-position: center center;
     color: #fff;
@@ -325,14 +325,14 @@
 /* Swap hero background to smaller images on mobile to save bandwidth */
 @media (max-width:640px) {
     .hero.about-hero {
-        background-image: linear-gradient(180deg, rgba(6, 10, 10, 0.35), rgba(6, 10, 10, 0.18)), url("../images/Vedha%20Wellness/2.jpg");
+        background-image: linear-gradient(180deg, rgba(6, 10, 10, 0.35), rgba(6, 10, 10, 0.18)), url("../images/VedhaWellness/2.jpg");
         min-height: 300px;
     }
 }
 
 @media (min-width:641px) and (max-width:1024px) {
     .hero.about-hero {
-        background-image: linear-gradient(180deg, rgba(6, 10, 10, 0.35), rgba(6, 10, 10, 0.18)), url("../images/Vedha%20Wellness/8.jpg");
+        background-image: linear-gradient(180deg, rgba(6, 10, 10, 0.35), rgba(6, 10, 10, 0.18)), url("../images/VedhaWellness/8.jpg");
         min-height: 360px;
     }
 }
