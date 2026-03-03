@@ -264,3 +264,19 @@
         padding: 18px 0;
     }
 }
+
+/* Center underline for contact heading */
+.contact-section h3 {
+    text-align: center;
+}
+
+.contact-section h3::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 4px;
+    margin: 10px auto 0 auto;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    transform-origin: center center !important;
+}
