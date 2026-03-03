@@ -443,6 +443,15 @@
     }
 }
 
+/* Center underline for services heading at all sizes */
+.services .container h3::after,
+.services h3::after {
+    display: block;
+    width: 56px;
+    margin: 10px auto 0 auto;
+    transform-origin: center center !important;
+}
+
 .delay-0 {
     animation-delay: 0.12s;
 }
