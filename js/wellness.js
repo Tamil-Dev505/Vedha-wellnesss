@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="footer-col contact">
           <img src="images/logo.png" class="footer-logo" alt="The Vedha Wellness Studio logo">
           <h4>Contact</h4>
-          <p class="muted">The Vedha Wellness Studio<br>Kalluri Nagar, 3rd cross Street, Peelamedu, Coimbatore</p>
+          <p class="muted">The Vedha Wellness Studio<br>Kalluri Nagar, 3rd Cross Street, Peelamedu<br>Coimbatore</p>
           <p class="contact-phones"><a href="tel:7200205141">7200205141</a><br><a href="tel:9087161189">9087161189</a></p>
           <div class="social-icons">
             <a href="https://wa.me/917200205141" target="_blank" rel="noopener" class="social" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>

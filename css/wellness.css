@@ -731,6 +731,15 @@ section.in-view h2.reveal {
     .contact-wrapper {
         grid-template-columns: 1fr;
     }
+
+    .contact-info,
+    .contact-form {
+        padding: 24px 18px;
+    }
+
+    .contact-info p {
+        font-size: 14.5px;
+    }
 }
 
 /* WHATSAPP FLOATING BUTTON */
