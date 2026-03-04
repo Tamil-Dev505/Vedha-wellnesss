@@ -1,4 +1,63 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+    // Generate testimonials dynamically
+    (function buildTestimonials() {
+        var grid = document.getElementById('testimonialsGrid');
+        if (!grid) return;
+        var testimonials = [
+            { name: 'Priya R.', avatar: 'avatar-1.svg', date: 'Reviewed Jan 10, 2026', stars: 5, quote: 'The team at Vedha helped me recover after months of back pain. Gentle, effective care.' },
+            { name: 'Arun M.', avatar: 'avatar-2.svg', date: 'Reviewed Nov 3, 2025', stars: 5, quote: 'Personalized guidance and follow-up \u2014 I feel more energetic and calm.' },
+            { name: 'Sangeeta K.', avatar: 'avatar-3.svg', date: 'Reviewed Sep 15, 2025', stars: 5, quote: 'Great atmosphere, very professional therapists. Highly recommended.' },
+            { name: 'Meera S.', avatar: 'avatar-4.svg', date: 'Reviewed Dec 1, 2025', stars: 5, quote: 'I tried Vedha for a deep tissue massage after months of desk work \u2014 my posture improved within a week. The therapist explained every step and offered follow-up stretches.' },
+            { name: 'Rohit P.', avatar: 'avatar-5.svg', date: 'Reviewed Oct 21, 2025', stars: 4, quote: 'Very effective physiotherapy sessions after my sports injury \u2014 attentive staff and excellent follow-up care.' },
+            { name: 'Anita L.', avatar: 'avatar-1.svg', date: 'Reviewed Feb 2, 2026', stars: 5, quote: 'I come here monthly \u2014 the space is calm, appointments run on time, and the therapists remember my needs. Highly recommended for regular care.' }
+        ];
+        testimonials.forEach(function(t) {
+            var card = document.createElement('div');
+            card.className = 'testimonial-card';
+            var starsHTML = '';
+            for (var s = 0; s < t.stars; s++) starsHTML += '<i class="fa-solid fa-star"></i>';
+            card.innerHTML =
+                '<div class="testimonial-meta">' +
+                    '<img class="avatar-img" src="images/avatars/' + t.avatar + '" alt="' + t.name + '">' +
+                    '<div class="meta-text">' +
+                        '<div class="name">' + t.name + '</div>' +
+                        '<div class="date">' + t.date + '</div>' +
+                        '<div class="rating" aria-label="' + t.stars + ' out of 5 stars">' + starsHTML + '</div>' +
+                    '</div>' +
+                '</div>' +
+                '<blockquote class="quote">' + t.quote + '</blockquote>';
+            grid.appendChild(card);
+        });
+    })();
+
+    // Generate gallery items dynamically
+    (function buildGallery() {
+        var gallery = document.getElementById('masonryGallery');
+        if (!gallery) return;
+        // Only populate if gallery page (empty container)
+        if (gallery.children.length > 0) return;
+        var images = [
+            '2','3','4','5','12','6','7','9','11','12',
+            '13','14','39','16','17','20','19','36','21','22',
+            '23','24','25','26','27','28','29','30','44','32',
+            '33','34','43','36','37','38'
+        ];
+        images.forEach(function(num, i) {
+            var fig = document.createElement('figure');
+            fig.className = 'gallery-item';
+            var a = document.createElement('a');
+            a.href = 'images/VedhaWellness/' + num + '.jpg';
+            var img = document.createElement('img');
+            img.loading = 'lazy';
+            img.src = 'images/VedhaWellness/' + num + '.jpg';
+            img.alt = 'gallery ' + (i + 1);
+            a.appendChild(img);
+            fig.appendChild(a);
+            gallery.appendChild(fig);
+        });
+    })();
+
     // Better lazy-loading + safe WebP swap without external tools
     (function enhanceImages() {
         const PLACEHOLDER = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
