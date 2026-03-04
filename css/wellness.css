@@ -907,7 +907,7 @@ section.in-view h2.reveal {
         transform: translateY(0);
     }
 
-    /* Decorative underline for section headings */
+    /* Decorative underline for section headings — hover only on mobile */
     section h3::after,
     section h2::after {
         content: "";
@@ -922,8 +922,8 @@ section.in-view h2.reveal {
         transition: transform 560ms cubic-bezier(.2, .9, .2, 1);
     }
 
-    section.in-view h3::after,
-    section.in-view h2::after {
+    section h3:hover::after,
+    section h2:hover::after {
         transform: scaleX(1);
     }
 
