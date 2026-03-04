@@ -1306,7 +1306,7 @@ section.in-view h2.reveal {
 @media (max-width: 480px) {
     .nav-wordmark {
         display: inline-block;
-        height: 28px;
+        height: 34px;
     }
 }
 
@@ -1380,7 +1380,7 @@ p {
 
 .nav-wordmark {
     display: inline-block;
-    height: 24px;
+    height: 34px;
 }
 
 /* Footer: stack columns on small screens */
