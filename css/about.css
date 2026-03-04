@@ -715,6 +715,18 @@
     .values-grid {
         grid-template-columns: 1fr;
     }
+
+    .values-block {
+        text-align: center;
+    }
+
+    .value-card {
+        text-align: center;
+    }
+
+    .value-card p {
+        text-align: justify;
+    }
 }
 
 .cta {

@@ -1390,6 +1390,10 @@ p {
 .nav-wordmark {
     display: inline-block;
     height: 34px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    -webkit-backface-visibility: hidden;
 }
 
 /* Footer: stack columns on small screens */

@@ -215,11 +215,13 @@ img {
     background: white;
     z-index: 1000;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding-top: env(safe-area-inset-top, 0px);
 }
 
-/* Add top padding so content isn’t hidden under navbar */
+/* Add top padding so content isn't hidden under navbar */
 body {
     padding-top: 90px;
+    padding-top: calc(90px + env(safe-area-inset-top, 0px));
     /* adjust if navbar height changes */
 }
 
@@ -233,12 +235,14 @@ body {
 @media (max-width: 768px) {
     body {
         padding-top: 64px;
+        padding-top: calc(64px + env(safe-area-inset-top, 0px));
     }
 }
 
 @media (max-width: 480px) {
     body {
         padding-top: 56px;
+        padding-top: calc(56px + env(safe-area-inset-top, 0px));
     }
 }
 
