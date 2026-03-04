@@ -915,9 +915,9 @@ section.in-view h2.reveal {
         width: 56px;
         height: 4px;
         border-radius: 4px;
-        margin-top: 10px;
+        margin: 10px auto 0;
         background: linear-gradient(90deg, var(--accent), var(--accent-2));
-        transform-origin: left center;
+        transform-origin: center center;
         transform: scaleX(0);
         transition: transform 560ms cubic-bezier(.2, .9, .2, 1);
     }
