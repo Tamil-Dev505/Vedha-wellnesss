@@ -1379,7 +1379,8 @@ p {
 }
 
 .nav-wordmark {
-    display: none;
+    display: inline-block;
+    height: 24px;
 }
 
 /* Footer: stack columns on small screens */
