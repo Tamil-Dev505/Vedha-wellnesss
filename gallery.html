@@ -1,110 +1,127 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Gallery — Vedha Wellness</title>
-    <link rel="stylesheet" href="css/base.css?v=1.1">
-    <link rel="stylesheet" href="css/wellness.css?v=1.1">
-    <link rel="stylesheet" href="css/gallery.css?v=1.2">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-</head>
+    <link rel="stylesheet" href="css/base.css?v=1.1" />
+    <link rel="stylesheet" href="css/wellness.css?v=1.1" />
+    <link rel="stylesheet" href="css/gallery.css?v=1.2" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  </head>
 
-<body>
+  <body>
     <div id="site-header"></div>
     <main>
-        <section class="hero about-hero">
-            <div class="hero-slider" aria-hidden="true">
-                <div class="slide" style="background-image: url('images/VedhaWellness/2.jpg')"></div>
-                <div class="slide" style="background-image: url('images/VedhaWellness/3.jpg')"></div>
-                <div class="slide" style="background-image: url('images/VedhaWellness/4.jpg')"></div>
-                <div class="slide" style="background-image: url('images/VedhaWellness/5.jpg')"></div>
-            </div>
-            <div class="container">
-                <div class="hero-text">
-                    <h1>Gallery</h1>
-                    <p class="subtle">A glimpse inside Vedha — our studio, treatment rooms, and community moments.</p>
-                    <p class="hero-strap">Restore. Rebalance. Reconnect — thoughtful care for body and mind.</p>
-                    <p class="lead">Calm spaces, expert therapists, and small moments of restoration captured for you.
-                    </p>
-                    <a class="btn-primary" href="contact.html">Book a Visit</a>
-                </div>
-            </div>
-            <div class="hero-dots" aria-hidden="false"></div>
-        </section>
-        <section class="content-block">
-            <div class="container">
-                <h2>Studio &amp; Treatments</h2>
-                <p class="intro">Explore our studio spaces and treatment rooms — thoughtfully designed for relaxation,
-                    restoration, and expert care.</p>
-                <div class="masonry-gallery" id="masonryGallery"></div>
-                <div class="muted" style="margin-top:18px">
-                    <button id="openGalleryBtn" class="muted-btn" aria-label="Open gallery"><i
-                            class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Click any image to
-                        enlarge</button>
-                </div>
-            </div>
-        </section>
-        <section class="content-block testimonials-block">
-            <div class="container">
-                <h2>Testimonials</h2>
-                <div class="testimonials-grid" id="testimonialsGrid"></div>
-            </div>
-        </section>
+      <section class="hero about-hero">
+        <div class="hero-slider" aria-hidden="true">
+          <div class="slide" style="background-image: url('images/VedhaWellness/2.jpg')"></div>
+          <div class="slide" style="background-image: url('images/VedhaWellness/3.jpg')"></div>
+          <div class="slide" style="background-image: url('images/VedhaWellness/4.jpg')"></div>
+          <div class="slide" style="background-image: url('images/VedhaWellness/5.jpg')"></div>
+        </div>
+        <div class="container">
+          <div class="hero-text">
+            <h1>Gallery</h1>
+            <p class="subtle">A glimpse inside Vedha — our studio, treatment rooms, and community moments.</p>
+            <p class="hero-strap">Restore. Rebalance. Reconnect — thoughtful care for body and mind.</p>
+            <p class="lead">Calm spaces, expert therapists, and small moments of restoration captured for you.</p>
+            <a class="btn-primary" href="contact.html">Book a Visit</a>
+          </div>
+        </div>
+        <div class="hero-dots" aria-hidden="false"></div>
+      </section>
+      <section class="content-block">
+        <div class="container">
+          <h2>Studio &amp; Treatments</h2>
+          <p class="intro">Explore our studio spaces and treatment rooms — thoughtfully designed for relaxation, restoration, and expert care.</p>
+          <div class="masonry-gallery" id="masonryGallery"></div>
+          <div class="muted" style="margin-top:18px">
+            <button id="openGalleryBtn" class="muted-btn" aria-label="Open gallery"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Click any image to enlarge</button>
+          </div>
+        </div>
+      </section>
+      <section class="content-block testimonials-block">
+        <div class="container">
+          <h2>Testimonials</h2>
+          <div class="testimonials-grid" id="testimonialsGrid"></div>
+        </div>
+      </section>
     </main>
-    <a href="https://wa.me/917200205141" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp"><i
-            class="fa-brands fa-whatsapp"></i></a>
+    <a href="https://wa.me/917200205141" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
     <footer class="site-footer">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <img src="images/logo.png" alt="Vedha Wellness logo" class="footer-logo">
-                <a href="index.html" class="footer-wordmark-link" aria-label="Vedha Wellness"><img
-                        src="images/logow.png" alt="The Vedha Wellness Studio" class="footer-wordmark"></a>
-                <div class="footer-icons">
-                    <a href="gallery.html" class="icon-circle" aria-label="Gallery"><i class="fa-solid fa-camera"
-                            aria-hidden="true"></i></a>
-                    <a href="contact.html" class="icon-circle" aria-label="Find us"><i class="fa-solid fa-map-pin"
-                            aria-hidden="true"></i></a>
-                </div>
-            </div>
-            <div class="footer-links">
-                <h5>Quick Links</h5>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="service.html">Services</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-services">
-                <h5>Our Services</h5>
-                <ul>
-                    <li><a href="service.html">Pranayama &amp; Breathwork</a></li>
-                    <li><a href="service.html">Therapeutic Yoga</a></li>
-                    <li><a href="service.html">Sound Healing</a></li>
-                    <li><a href="service.html">Natural Therapies</a></li>
-                    <li><a href="service.html">Chiropractic &amp; Dorn Therapy</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h5>Contact</h5>
-                <p>📍 Kalluri Nagar, 3rd Cross Street, Peelamedu<br>Coimbatore</p>
-                <p>📞 7200205141 | 9087161189</p>
-                <p>💬 <a href="https://wa.me/917200205141" target="_blank">WhatsApp Us</a></p>
-            </div>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="Vedha Wellness logo" class="footer-logo" />
+          <a href="index.html" class="footer-wordmark-link" aria-label="Vedha Wellness"><img src="images/logow.png" alt="The Vedha Wellness Studio" class="footer-wordmark" /></a>
+          <div class="footer-icons">
+            <a href="gallery.html" class="icon-circle" aria-label="Gallery"><i class="fa-solid fa-camera" aria-hidden="true"></i></a>
+            <a href="contact.html" class="icon-circle" aria-label="Find us"><i class="fa-solid fa-map-pin" aria-hidden="true"></i></a>
+          </div>
         </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <hr>
-                <p class="copyright">© 2026 The Vedha Wellness Studio. All rights reserved.</p>
-            </div>
+        <div class="footer-links">
+          <h5>Quick Links</h5>
+          <ul>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="about.html">About Us</a>
+            </li>
+            <li>
+              <a href="service.html">Services</a>
+            </li>
+            <li>
+              <a href="gallery.html">Gallery</a>
+            </li>
+            <li>
+              <a href="contact.html">Contact</a>
+            </li>
+          </ul>
         </div>
+        <div class="footer-services">
+          <h5>Our Services</h5>
+          <ul>
+            <li>
+              <a href="service.html">Pranayama &amp; Breathwork</a>
+            </li>
+            <li>
+              <a href="service.html">Therapeutic Yoga</a>
+            </li>
+            <li>
+              <a href="service.html">Sound Healing</a>
+            </li>
+            <li>
+              <a href="service.html">Natural Therapies</a>
+            </li>
+            <li>
+              <a href="service.html">Chiropractic &amp; Dorn Therapy</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h5>Contact</h5>
+          <p>
+            📍 Kalluri Nagar, 3rd Cross Street, Peelamedu<br />Coimbatore
+          </p>
+          <p>📞 7200205141 | 9087161189</p>
+          <p>
+            💬 <a href="https://wa.me/917200205141" target="_blank">WhatsApp Us</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <hr />
+          <p class="copyright">© 2026 The Vedha Wellness Studio. All rights reserved.</p>
+          <p class="designed-by">
+            <i class="fa-solid fa-code" aria-hidden="true"></i> Designed by Apex Info Sys Solutions
+          </p>
+        </div>
+      </div>
     </footer>
     <script src="js/wellness.js" defer></script>
     <script src="js/gallery.js?v=1.1" defer></script>
-</body>
-
+  </body>
 </html>
